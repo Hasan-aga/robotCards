@@ -42,9 +42,10 @@ class App extends Component {
     );
     return (
       <div className="App">
+        <h1 className="logo">No Country for Old Bot</h1>
         <SearchBox
           className="search-box"
-          placeholder="search for monster"
+          placeholder="search for bots"
           handleSearch={this.searchHandler.bind(this)}
         ></SearchBox>
         <CardList monsters={filteredMonsters} />

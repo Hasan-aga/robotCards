@@ -10,3 +10,9 @@ body {
     rgba(247, 37, 133, 1) 100%
   );
 }
+
+.logo {
+  font-family: "Mouse Memoirs", sans-serif;
+  font-size: 100px;
+  color: #f7f7f7;
+}
