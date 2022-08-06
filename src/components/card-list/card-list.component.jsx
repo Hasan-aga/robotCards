@@ -9,7 +9,9 @@ class CardList extends Component {
     return (
       <div className={`cards ${this.props.containerClassName}`}>
         {this.props.monsters.map((monster) => {
-          return <Card monster={monster}></Card>;
+          return (
+            <Card searchValue={this.props.searchValue} monster={monster}></Card>
+          );
         })}
       </div>
     );

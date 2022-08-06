@@ -47,7 +47,10 @@ class App extends Component {
           placeholder="search for bots"
           handleSearch={this.searchHandler.bind(this)}
         ></SearchBox>
-        <CardList monsters={filteredMonsters} />
+        <CardList
+          searchValue={this.state.searchValue}
+          monsters={filteredMonsters}
+        />
       </div>
     );
   }
