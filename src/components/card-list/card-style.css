@@ -1,0 +1,14 @@
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: 10px 20px 10px 10px;
+}
+
+.card {
+  display: flex;
+  background-color: #3a0ca3;
+  font-size: 14px;
+  color: #f7f7f7;
+  margin: 2px;
+  border-radius: 10px;
+}
