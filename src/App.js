@@ -5,30 +5,54 @@ import { Component } from "react";
 class App extends Component {
   constructor() {
     super();
-    this.state = { name: "Hasan" };
+    this.state = {
+      monsters: [],
+      searchValue: "",
+    };
+    console.log("constructor");
+  }
+
+  componentDidMount() {
+    console.log("component did mount");
+    fetch(`https://jsonplaceholder.typicode.com/users`)
+      .then((res) => res.json())
+      .then((data) =>
+        this.setState(
+          () => {
+            return { monsters: data };
+          },
+          () => {
+            console.log(this.state);
+          }
+        )
+      );
   }
 
   render() {
+    console.log("rendering");
+
+    const filteredMonsters = this.state.monsters.filter((monster) =>
+      monster.name.toLowerCase().includes(this.state.searchValue)
+    );
+    console.log(filteredMonsters);
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>Hello {this.state.name}</p>
-          <button
-            onClick={() =>
-              this.setState(
-                () => {
-                  return { name: "Ali" };
-                },
-                () => {
-                  console.log(this.state);
-                }
-              )
-            }
-          >
-            change
-          </button>
-        </header>
+        <input
+          className="search-box"
+          type={"search"}
+          placeholder="search for monster"
+          onChange={(event) =>
+            this.setState(() => {
+              const searchValue = event.target.value.toLocaleLowerCase();
+              return { searchValue };
+            })
+          }
+        />
+        {filteredMonsters.map((monster) => (
+          <div key={monster.id}>
+            <h1>{monster.name}</h1>
+          </div>
+        ))}
       </div>
     );
   }
