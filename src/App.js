@@ -38,7 +38,6 @@ class App extends Component {
     const filteredMonsters = this.state.monsters.filter((monster) =>
       monster.name.toLowerCase().includes(this.state.searchValue)
     );
-    console.log(filteredMonsters);
     return (
       <div className="App">
         <input
