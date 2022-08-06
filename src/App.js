@@ -33,7 +33,7 @@ class App extends Component {
   }
 
   render() {
-    console.log("rendering");
+    console.log("rendering from app", this.state.monsters.length);
 
     const filteredMonsters = this.state.monsters.filter((monster) =>
       monster.name.toLowerCase().includes(this.state.searchValue)
