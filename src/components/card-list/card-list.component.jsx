@@ -7,16 +7,20 @@ class CardList extends Component {
 
     return (
       <div className={`cards ${this.props.containerClassName}`}>
-        {this.props.monsters.map((monster) => (
-          <div className={`card ${this.props.cardClassName}`} key={monster.id}>
-            <img
-              src={`https://robohash.org/${monster.id}?set=set3`}
-              className={`card-image`}
-              alt={`monster ${monster.name}`}
-            ></img>
-            <h1 className={`title ${this.props.cardTitle}`}>{monster.name}</h1>
-          </div>
-        ))}
+        {this.props.monsters.map((monster) => {
+          const { name, id, email } = monster;
+          return (
+            <div className={`card ${this.props.cardClassName}`} key={id}>
+              <img
+                src={`https://robohash.org/${id}?set=set3&size=180x180`}
+                className={`card-image`}
+                alt={`monster ${name}`}
+              ></img>
+              <h1 className={`title ${this.props.cardTitle}`}>{name}</h1>
+              <p> {email}</p>
+            </div>
+          );
+        })}
       </div>
     );
   }
