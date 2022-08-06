@@ -6,10 +6,15 @@ class CardList extends Component {
     console.log("rendering from cardlist", this.props.monsters.length);
 
     return (
-      <div className="cards">
+      <div className={`cards ${this.props.containerClassName}`}>
         {this.props.monsters.map((monster) => (
-          <div className={this.props.className} key={monster.id}>
-            <h1>{monster.name}</h1>
+          <div className={`card ${this.props.cardClassName}`} key={monster.id}>
+            <img
+              src={`https://robohash.org/${monster.id}?set=set3`}
+              className={`card-image`}
+              alt={`monster ${monster.name}`}
+            ></img>
+            <h1 className={`title ${this.props.cardTitle}`}>{monster.name}</h1>
           </div>
         ))}
       </div>

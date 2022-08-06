@@ -47,7 +47,7 @@ class App extends Component {
           placeholder="search for monster"
           handleSearch={this.searchHandler.bind(this)}
         ></SearchBox>
-        <CardList className="card" monsters={filteredMonsters} />
+        <CardList monsters={filteredMonsters} />
       </div>
     );
   }
