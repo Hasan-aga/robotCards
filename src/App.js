@@ -12,27 +12,23 @@ class App extends Component {
     console.log("constructor");
   }
 
-  componentDidMount() {
-    console.log("component did mount");
-    fetch(`https://jsonplaceholder.typicode.com/users`)
-      .then((res) => res.json())
-      .then((data) =>
-        this.setState(
-          () => {
-            return { monsters: data };
-          },
-          () => {
-            console.log(this.state);
-          }
-        )
-      );
-  }
+  updateMonsters = (data) =>
+    this.setState(() => {
+      return { monsters: data };
+    });
 
   searchHandler(event) {
     this.setState(() => {
       const searchValue = event.target.value.toLocaleLowerCase();
       return { searchValue };
     });
+  }
+
+  componentDidMount() {
+    console.log("component did mount");
+    fetch(`https://jsonplaceholder.typicode.com/users`)
+      .then((res) => res.json())
+      .then(this.updateMonsters);
   }
 
   render() {
